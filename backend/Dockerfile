@@ -4,7 +4,7 @@ RUN apt update && apt install -y python3-dev default-libmysqlclient-dev build-es
 RUN useradd -m -d /app backend
 USER backend
 
-COPY acit4640-py-mysql-master.zip /tmp/source.zip
+COPY docker-ci_cd/acit4640-py-mysql-master.zip /tmp/source.zip
 
 WORKDIR /app
 
