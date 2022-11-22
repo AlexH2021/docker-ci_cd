@@ -6,7 +6,9 @@ USER backend
 
 WORKDIR /app
 
-RUN cp ../acit4640-py-mysql-master.zip /tmp/source.zip && unzip /tmp/source.zip && cp -r acit4640-py-mysql-master/backend /app/src && rm -rf acit4640-py-mysql-master
+COPY ../acit4640-py-mysql-master.zip /tmp/source.zip
+
+RUN unzip /tmp/source.zip && cp -r acit4640-py-mysql-master/backend /app/src && rm -rf acit4640-py-mysql-master
 
 RUN python -m pip install -r /app/src/requirements.txt
 
