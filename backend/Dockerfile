@@ -4,11 +4,9 @@ RUN apt update && apt install -y python3-dev default-libmysqlclient-dev build-es
 RUN useradd -m -d /app backend
 USER backend
 
-COPY docker-ci_cd/acit4640-py-mysql-master.zip /tmp/source.zip
-
 WORKDIR /app
 
-RUN unzip /tmp/source.zip && cp -r acit4640-py-mysql-master/backend /app/src && rm -rf acit4640-py-mysql-master
+RUN wget -qq https://github.com/AlexH2021/docker-ci_cd/raw/main/acit4640-py-mysql-master.zip -O /tmp/source.zip && unzip /tmp/source.zip && cp -r acit4640-py-mysql-master/backend /app/src && rm -rf acit4640-py-mysql-master
 
 RUN python -m pip install -r /app/src/requirements.txt
 
